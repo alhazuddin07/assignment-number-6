@@ -1,12 +1,16 @@
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '@/assets/logo.png'
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
 
+    const pathname = usePathname();
+
     const links = <>
-        <li><Link href="/">Workouts</Link></li>
-        <li><Link href="/my-plan">My Plan</Link></li>
+        <li><Link className={pathname === "/" ? "text-[#ccff00]" : ""} href="/">Workouts</Link></li>
+        <li><Link className={pathname === "/my-plan" ? "text-[#ccff00] rounded-2xl" : ""}  href="/my-plan">My Plan</Link></li>
     </>
 
     return (
@@ -39,8 +43,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-4">
-                    <Link href="/listed-cards" className="btn">Plan</Link>
-                    <Link href="/listed-cards" className="btn">Saved</Link>
+                    <Link href="/my-plan">Plan <span className='px-2 py-1 rounded-2xl bg-[#ccff00] text-black'>0</span></Link>
+                    <Link href="/my-plan">Saved <span className='px-2 py-1 border border-[#2D313B] rounded-2xl'>0</span></Link>
                 </div>
             </div>
             <div className='divider'></div>

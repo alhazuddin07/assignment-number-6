@@ -1,11 +1,11 @@
 'use client';
-
 import { CardsContext } from '@/context/CardsProvider';
 import { ICard } from '@/types/gym-type';
 import { useContext, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Clock3, Flame, Star, X } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const MyPlanPart2 = () => {
 
@@ -35,7 +35,7 @@ const MyPlanPart2 = () => {
         const sortedCards = [...cards];
 
         if (sortBy === 'duration') {
-            sortedCards.sort((a, b) => a.duration - b.duration );
+            sortedCards.sort((a, b) => b.duration - a.duration );
         } else if (sortBy === 'rating') {
             sortedCards.sort((a, b) => b.rating - a.rating);
         } else if (sortBy === 'caloriesBurned') {
@@ -45,8 +45,6 @@ const MyPlanPart2 = () => {
         return sortedCards;
     };
 
-
-    // Active cards কে sort করা
     const sortedCards = sortCards(cards);
 
 
@@ -54,31 +52,22 @@ const MyPlanPart2 = () => {
     const handleRemove = (id: number) => {
 
         if (activeTab === 'today') {
-
-            const updatedCards = todaysPlan.filter(
-                (card: ICard) => card.id !== id
-            );
-
+            const updatedCards = todaysPlan.filter((card: ICard) => card.id !== id);
             setTodaysPlan(updatedCards);
+            toast.success("Exercise removed from today's plan")
 
         } else {
-
-            const updatedCards = saveLater.filter(
-                (card: ICard) => card.id !== id
-            );
-
+            const updatedCards = saveLater.filter((card: ICard) => card.id !== id);
             setSaveLater(updatedCards);
+            toast.success("Exercise removed from saved list")
         }
     };
-
 
     return (
         <div className="mt-15">
 
-            {/* Tabs + Sort */}
             <div className="flex items-center justify-between">
 
-                {/* Tabs */}
                 <div className="tabs tabs-box bg-[#34373f]">
 
                     <button
@@ -106,7 +95,6 @@ const MyPlanPart2 = () => {
 
                 </div>
 
-
                 {/* Sort */}
                 <div className="flex items-center gap-3">
 
@@ -116,30 +104,14 @@ const MyPlanPart2 = () => {
 
                     <select
                         value={sortBy}
-                        onChange={(e) =>
-                            setSortBy(
-                                e.target.value as
-                                    | 'duration'
-                                    | 'rating'
-                                    | 'caloriesBurned'
-                            )
-                        }
+                        onChange={(e) => setSortBy(e.target.value as 'duration' | 'rating' | 'caloriesBurned')}
                         className="rounded-md border border-gray-400 px-3 py-2"
                     >
-                        <option value="duration">
-                            Duration
-                        </option>
-
-                        <option value="rating">
-                            Rating
-                        </option>
-
-                        <option value="caloriesBurned">
-                            Calories
-                        </option>
+                        <option value="duration">Duration</option>
+                        <option value="rating">Rating</option>
+                        <option value="caloriesBurned">Calories</option>
 
                     </select>
-
                 </div>
 
             </div>
@@ -149,14 +121,12 @@ const MyPlanPart2 = () => {
             <div className="mt-5 space-y-3">
 
                 {sortedCards.length === 0 ? (
-
                     <div className="rounded-xl border border-gray-800 bg-[#15171c] p-10 text-center text-gray-400">
 
                         {activeTab === 'today'
                             ? "No exercises in today's plan."
                             : "No saved exercises yet."
                         }
-
                     </div>
 
                 ) : (
@@ -182,9 +152,7 @@ const MyPlanPart2 = () => {
                                 <div>
 
                                     <h3 className="font-bold uppercase">{card.name}</h3>
-
                                     <p className="text-sm text-gray-500">{card.equipment}</p>
-
                                     <div className="mt-1 flex gap-4 text-xs text-gray-400">
 
                                         <span className="flex items-center gap-1">
@@ -223,7 +191,6 @@ const MyPlanPart2 = () => {
                                     </button>
                                 )}
 
-                                {/* Remove */}
                                 <button
                                     onClick={() => handleRemove(card.id)}
                                     className="p-2 text-gray-500 hover:text-white">
@@ -232,11 +199,8 @@ const MyPlanPart2 = () => {
                             </div>
                         </div>
                     ))
-
                 )}
-
             </div>
-
         </div>
     );
 };

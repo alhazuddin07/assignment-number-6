@@ -3,10 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '@/assets/logo.png'
 import { usePathname } from 'next/navigation';
+import { useContext } from 'react';
+import { CardsContext } from '@/context/CardsProvider';
+import { ICard } from '@/types/gym-type';
 
 const Navbar = () => {
 
     const pathname = usePathname();
+    const { todaysPlan, saveLater } = useContext(CardsContext) as {
+        todaysPlan: ICard[];
+        saveLater: ICard[];
+    };
 
     const links = <>
         <li><Link className={pathname === "/" ? "text-[#ccff00]" : ""} href="/">Workouts</Link></li>
@@ -43,8 +50,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-4">
-                    <Link href="/my-plan">Plan <span className='px-2 py-1 rounded-2xl bg-[#ccff00] text-black'>0</span></Link>
-                    <Link href="/my-plan">Saved <span className='px-2 py-1 border border-[#2D313B] rounded-2xl'>0</span></Link>
+                    <Link href="/my-plan">Plan <span className='px-2 py-1 rounded-2xl bg-[#ccff00] text-black'>{todaysPlan.length}</span></Link>
+                    
+                    <Link href="/my-plan">Saved <span className='px-2 py-1 border border-[#2D313B] rounded-2xl'>{saveLater.length}</span></Link>
                 </div>
             </div>
             <div className='divider'></div>

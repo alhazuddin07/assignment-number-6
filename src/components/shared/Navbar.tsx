@@ -16,8 +16,8 @@ const Navbar = () => {
     };
 
     const links = <>
-        <li><Link className={pathname === "/" ? "text-[#ccff00]" : ""} href="/">Workouts</Link></li>
-        <li><Link className={pathname === "/my-plan" ? "text-[#ccff00] rounded-2xl" : ""} href="/my-plan">My Plan</Link></li>
+        <li><Link className={pathname === "/" ? "text-[#ccff00]" : "text-white"} href="/">Workouts</Link></li>
+        <li><Link className={pathname === "/my-plan" ? "text-[#ccff00] rounded-2xl" : "text-white"} href="/my-plan">My Plan</Link></li>
     </>
 
     return (

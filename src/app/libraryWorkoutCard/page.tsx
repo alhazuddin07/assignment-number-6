@@ -18,14 +18,14 @@ const ExerciseCard = async () => {
 
     return (
         <div className="container mx-auto my-16">
-            <h2 className="font-semibold text-4xl">THE LIBRARY</h2>
+            <h2 className="font-semibold sm:text-3xl md:text-4xl">THE LIBRARY</h2>
 
             <p className="p-2 text-[#9CA3AF]">
                 Twelve lifts covering every major muscle group.
             </p>
 
             {/* Grid */}
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                 {allCard.map((card: ICard) => {
                     return (
                         <Link href={`/libraryWorkoutCard/${card.id}`} key={card.id}>
@@ -37,6 +37,7 @@ const ExerciseCard = async () => {
                                         src={card.image}
                                         alt={card.name}
                                         fill
+                                        sizes='1'
                                         className="object-cover"
                                     />
                                 </div>

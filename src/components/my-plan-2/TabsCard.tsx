@@ -54,12 +54,12 @@ const MyPlanPart2 = () => {
         if (activeTab === 'today') {
             const updatedCards = todaysPlan.filter((card: ICard) => card.id !== id);
             setTodaysPlan(updatedCards);
-            toast.success("Exercise removed from today's plan")
+            toast.warning("Exercise removed from today's plan")
 
         } else {
             const updatedCards = saveLater.filter((card: ICard) => card.id !== id);
             setSaveLater(updatedCards);
-            toast.success("Exercise removed from saved list")
+            toast.warning("Exercise removed from saved list")
         }
     };
 
@@ -121,11 +121,24 @@ const MyPlanPart2 = () => {
             <div className="mt-5 space-y-3">
 
                 {sortedCards.length === 0 ? (
-                    <div className="rounded-xl border border-gray-800 bg-[#15171c] p-10 text-center text-gray-400">
+                    <div className="rounded-xl border border-gray-800 bg-[#15171c] p-25 text-center text-gray-400">
 
                         {activeTab === 'today'
-                            ? "No exercises in today's plan."
-                            : "No saved exercises yet."
+                            ? <div className='space-y-4'>
+                                <h2 className='text-2xl text-white'>NOTHING HERE YET</h2>
+                                <p className=''>Browse the library and add a lift to get today moving.</p>
+                                <Link href="/">
+                                    <button className='btn bg-[#ccff00] text-black rounded-2xl'>Go to workouts</button>
+                                </Link>
+                            </div>
+
+                            : <div className='space-y-4'>
+                                <h2 className='text-2xl text-white'>NOTHING HERE YET</h2>
+                                <p className=''>Browse the library and add a lift to get today moving.</p>
+                                <Link href="/">
+                                    <button className='btn bg-[#ccff00] text-black rounded-2xl'>Go to workouts</button>
+                                </Link>
+                            </div>
                         }
                     </div>
 

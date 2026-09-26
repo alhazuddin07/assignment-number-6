@@ -7,7 +7,10 @@ import { toast } from 'react-toastify';
 
 const TodaysPlanButton = ({ card }: {card: ICard}) => {
 
-    const { todaysPlan, setTodaysPlan } = useContext(CardsContext);
+    const { todaysPlan, setTodaysPlan } = useContext(CardsContext) as {
+        todaysPlan: ICard[];
+        setTodaysPlan: (plan: ICard[]) => void;
+    };
 
     const handleAddTodaysPlan = () => {
         

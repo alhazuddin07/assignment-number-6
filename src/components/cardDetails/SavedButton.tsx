@@ -7,7 +7,10 @@ import { toast } from 'react-toastify';
 
 const SavedButton = ({ card }: { card: ICard }) => {
 
-    const { saveLater, setSaveLater } = useContext(CardsContext);
+    const { saveLater, setSaveLater } = useContext(CardsContext) as {
+        saveLater: ICard[];
+        setSaveLater: (plan: ICard[])=> void;      
+    }
 
     const handleSaveButton = () => {
 

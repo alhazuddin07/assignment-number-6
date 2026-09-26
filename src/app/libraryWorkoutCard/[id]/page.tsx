@@ -2,7 +2,6 @@
 import SavedButton from '@/components/cardDetails/SavedButton';
 import TodaysPlanButton from '@/components/cardDetails/TodaysPlanButton';
 import { ICard } from '@/types/gym-type';
-import { Bookmark } from 'lucide-react';
 import Image from 'next/image';
 
 
@@ -38,6 +37,7 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                             src={card.image}
                             alt={card.name}
                             fill
+                            sizes='1'
                             className="object-cover"
                         />
                     </div>

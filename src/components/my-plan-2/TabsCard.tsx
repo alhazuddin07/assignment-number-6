@@ -64,7 +64,7 @@ const MyPlanPart2 = () => {
     };
 
     return (
-        <div className="mt-15">
+        <div className="mt-15 sm:px-4 lg:px-0">
 
             <div className="flex items-center justify-between">
 

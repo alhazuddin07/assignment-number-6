@@ -31,7 +31,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
             <div className="mx-auto max-w-7xl">
                 <div className="grid overflow-hidden rounded-2xl bg-[#111318] md:grid-cols-[1fr_1.15fr]">
 
-                    {/* LEFT - IMAGE */}
                     <div className="relative min-h-105 md:min-h-150]">
                         <Image
                             src={card.image}
@@ -42,20 +41,16 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                         />
                     </div>
 
-                    {/* RIGHT - CONTENT */}
                     <div className="p-6 md:p-8">
 
-                        {/* Title */}
                         <h1 className="text-3xl font-extrabold uppercase tracking-tight">
                             {card.name}
                         </h1>
 
-                        {/* Description */}
                         <p className="mt-2 max-w-2xl text-sm leading-5 text-gray-400">
                             {card.description}
                         </p>
 
-                        {/* Muscle Groups */}
                         <div className="mt-4 flex flex-wrap gap-2">
                             {card.muscleGroups.map((muscle: string) => (
                                 <span
@@ -67,10 +62,8 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                             ))}
                         </div>
 
-                        {/* Exercise Information */}
                         <div className="mt-5 overflow-hidden rounded-xl border border-gray-800 bg-[#171a20]">
 
-                            {/* Equipment */}
                             <div className="flex items-center justify-between border-b border-gray-800 px-4 py-3">
                                 <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
                                     Equipment
@@ -81,7 +74,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                                 </span>
                             </div>
 
-                            {/* Difficulty */}
                             <div className="flex items-center justify-between border-b border-gray-800 px-4 py-3">
                                 <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
                                     Difficulty
@@ -92,7 +84,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                                 </span>
                             </div>
 
-                            {/* Sets */}
                             <div className="flex items-center justify-between border-b border-gray-800 px-4 py-3">
                                 <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
                                     Sets
@@ -103,7 +94,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                                 </span>
                             </div>
 
-                            {/* Reps */}
                             <div className="flex items-center justify-between border-b border-gray-800 px-4 py-3">
                                 <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
                                     Reps
@@ -114,7 +104,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                                 </span>
                             </div>
 
-                            {/* Duration */}
                             <div className="flex items-center justify-between border-b border-gray-800 px-4 py-3">
                                 <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
                                     Duration
@@ -125,7 +114,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                                 </span>
                             </div>
 
-                            {/* Calories */}
                             <div className="flex items-center justify-between border-b border-gray-800 px-4 py-3">
                                 <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
                                     Calories
@@ -136,7 +124,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                                 </span>
                             </div>
 
-                            {/* Rating */}
                             <div className="flex items-center justify-between px-4 py-3">
                                 <span className="text-[10px] font-medium uppercase tracking-wide text-gray-400">
                                     Rating
@@ -149,7 +136,6 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
 
                         </div>
 
-                        {/* Instructions */}
                         <div className="mt-5">
                             <h2 className="text-sm font-bold uppercase">
                                 Instructions

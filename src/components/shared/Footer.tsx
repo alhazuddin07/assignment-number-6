@@ -4,7 +4,7 @@ import FLogo from '@/assets/SVG.svg';
 
 const Footer = () => {
     return (
-        <footer className='border-t border-[#2D313B]'>
+        <footer className='border-t border-[#2D313B] bg-black'>
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 
                 <div className="flex items-center gap-2 py-8">
@@ -14,7 +14,7 @@ const Footer = () => {
                         width={25}
                         alt="footerImage"
                     />
-                    <p className="text-[20px]">FITLOG</p>
+                    <p className="text-[20px] text-white">FITLOG</p>
                 </div>
 
                 <div className="text-center md:text-right pb-8 md:pb-0">

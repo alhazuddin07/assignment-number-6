@@ -42,7 +42,7 @@ const Navbar = () => {
                         width={35}
                         alt='navImage'
                     />
-                    <p className='text-[30px] pl-2'>FITLOG</p>
+                    <p className='text-[30px] pl-2 text-white'>FITLOG</p>
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -51,9 +51,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-4">
-                    <Link href="/my-plan">Plan <span className='px-2 py-1 rounded-2xl bg-[#ccff00] text-black'>{todaysPlan.length}</span></Link>
+                    <Link href="/my-plan" className='text-white'>Plan <span className='px-2 py-1 rounded-2xl bg-[#ccff00] text-black'>{todaysPlan.length}</span></Link>
 
-                    <Link href="/my-plan">Saved <span className='px-2 py-1 border border-[#2D313B] rounded-2xl'>{saveLater.length}</span></Link>
+                    <Link href="/my-plan" className='text-white'>Saved <span className='px-2 py-1 border border-[#4f5258] rounded-2xl text-white'>{saveLater.length}</span></Link>
                 </div>
             </div>
 

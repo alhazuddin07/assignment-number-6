@@ -1,42 +1,60 @@
-
 import SavedButton from '@/components/cardDetails/SavedButton';
 import TodaysPlanButton from '@/components/cardDetails/TodaysPlanButton';
 import { ICard } from '@/types/gym-type';
 import Image from 'next/image';
 
-
 interface ICardDetailPageProps {
     params: Promise<{
-        id: string,
-    }>
+        id: string;
+    }>;
 }
 
+const getItem = async (): Promise<ICard[]> => {
+    try {
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL!);
 
-const getItem = async () => {
-    const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
-    const data = await res.json();
-    return data;
-}
+        if (!res.ok) {
+            throw new Error('Failed to fetch workout data');
+        }
+        const data: ICard[] = await res.json();
+        return data;
 
+    } catch (error) {
+        console.error('Error fetching workout data:', error);
+        return [];
+    }
+};
 
 const DetailPage = async ({ params }: ICardDetailPageProps) => {
-
     const { id } = await params;
+
     const cardData = await getItem();
-    const card = cardData.find((card: ICard) => String(card.id) === String(id));
-    console.log("Card", card);
+
+    const card = cardData.find(
+        (item) => String(item.id) === String(id)
+    );
+
+    if (!card) {
+        return (
+            <div className="min-h-screen flex items-center justify-center text-white">
+                <h1 className="text-2xl font-bold">
+                    Workout not found
+                </h1>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen px-4 py-10 text-white">
             <div className="mx-auto max-w-7xl">
                 <div className="grid overflow-hidden rounded-2xl bg-[#111318] md:grid-cols-[1fr_1.15fr]">
 
-                    <div className="relative min-h-105 md:min-h-150]">
+                    <div className="relative min-h-105 md:min-h-150">
                         <Image
                             src={card.image}
                             alt={card.name}
                             fill
-                            sizes='1'
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover"
                         />
                     </div>
@@ -52,7 +70,7 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                         </p>
 
                         <div className="mt-4 flex flex-wrap gap-2">
-                            {card.muscleGroups.map((muscle: string) => (
+                            {card.muscleGroups.map((muscle) => (
                                 <span
                                     key={muscle}
                                     className="rounded-full bg-[#b6ff00] px-3 py-1 text-xs font-bold text-black"
@@ -142,7 +160,7 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                             </h2>
 
                             <ol className="mt-3 space-y-2">
-                                {card.instructions.map((instruction: string, index: number) => (
+                                {card.instructions.map((instruction, index) => (
                                     <li
                                         key={index}
                                         className="flex gap-3 text-xs leading-5 text-gray-400"
@@ -157,13 +175,10 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                             </ol>
                         </div>
 
-                        {/* Buttons */}
                         <div className="mt-6 flex flex-wrap gap-3">
-
                             <TodaysPlanButton card={card} />
 
                             <SavedButton card={card} />
-
                         </div>
 
                     </div>

@@ -5,7 +5,7 @@ import React from 'react';
 
 const MyPlanPage = () => {
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto mt-9'>
             <div className='sm:px-4 lg:px-0'>
                 <h2 className='font-bold text-4xl pb-2'>MY PLAN</h2>
                 <p className='text-[#8A92A0]'>

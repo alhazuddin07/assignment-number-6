@@ -6,10 +6,15 @@ import React from 'react';
 
 
 const getItem = async () => {
-    const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
-    const data = await res.json();
-    return data;
-}
+    try {
+        const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
+        const data = await res.json();
+        return data;
+    }catch (error) {
+        console.error("Error fetching books data", error);
+        return [];
+    }
+};
 
 const ExerciseCard = async () => {
 
@@ -17,7 +22,8 @@ const ExerciseCard = async () => {
     console.log("all data", allCard);
 
     return (
-        <div className="container mx-auto my-16">
+        <div id='workouts' className="container mx-auto my-16">
+
             <div className='sm:px-4 lg:px-0'>
                 <h2 className="font-semibold sm:text-3xl md:text-4xl">THE LIBRARY</h2>
 

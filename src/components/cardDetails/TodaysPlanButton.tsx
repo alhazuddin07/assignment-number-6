@@ -17,12 +17,12 @@ const TodaysPlanButton = ({ card }: {card: ICard}) => {
         const alreadyAdded = todaysPlan.some((item)=> item.id === card.id);
 
         if(alreadyAdded){
-            toast.error(`Alrady added ${card.name} to today's plan`);
+            toast.error(`Alrady added to today's plan`);
             return;
         }
 
         setTodaysPlan([...todaysPlan, card]);
-        toast.success(`You have added "${card.name}" to your today's plan`);
+        toast.success(`Added to today's plan`);
     }
 
     return (

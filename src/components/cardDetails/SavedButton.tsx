@@ -17,12 +17,12 @@ const SavedButton = ({ card }: { card: ICard }) => {
         const alradyAdded = saveLater.some((item) => item.id === card.id);
 
         if(alradyAdded){
-            toast.error(`Alrady added ${card.name} to save for later`);
+            toast.error(`Already saved`);
             return;
         }
 
         setSaveLater([...saveLater, card]);
-        toast.success(`You have added "${card.name}" to save for later `);
+        toast.success(`Added to save for later`);
     }
 
     return (

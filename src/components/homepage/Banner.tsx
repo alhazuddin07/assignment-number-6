@@ -17,7 +17,7 @@ const Banner = () => {
                             into today&apos;s plan, and watch the week&apos;s work add up.
                         </p>
 
-                        <Link className='btn bg-[#C2F800] text-black' href="/">BROWSE WORKOUTS</Link>
+                        <Link className='btn bg-[#C2F800] text-black' href="#workouts">BROWSE WORKOUTS</Link>
                     </div>
                     <div className='sm:mt-15 md:mt-0 lg:mt-0'>
                         <Image

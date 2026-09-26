@@ -7,7 +7,7 @@ const getItem = async (): Promise<ICard[]> => {
     try {
         const apiUrl =
             process.env.NEXT_PUBLIC_API_URL ||
-            'https://api.abcz.workers.dev/api/fitlog';
+            'https://api.api-store.workers.dev/api/fitlog';
 
         const res = await fetch(apiUrl);
 
@@ -16,8 +16,8 @@ const getItem = async (): Promise<ICard[]> => {
         }
 
         const data: ICard[] = await res.json();
-
         return data;
+        
     } catch (error) {
         console.error('Error fetching workout data:', error);
         return [];
@@ -42,7 +42,7 @@ const ExerciseCard = async () => {
             {/* Grid */}
             <div className="mt-6 grid grid-cols-1 gap-4 px-4 md:grid-cols-2 lg:grid-cols-3 lg:px-0">
 
-                {allCard.map((card) => (
+                {allCard ?.map((card) => (
                     <Link
                         href={`/libraryWorkoutCard/${card.id}`}
                         key={card.id}
@@ -62,7 +62,7 @@ const ExerciseCard = async () => {
                             <div className="p-8">
 
                                 <div className="mb-7 flex flex-wrap gap-4">
-                                    {card.muscleGroups.map((muscle) => (
+                                    {card?.muscleGroups?.map((muscle) => (
                                         <span
                                             key={muscle}
                                             className="rounded-full bg-[#b6ff00] px-4 py-2 text-sm font-bold uppercase text-black"

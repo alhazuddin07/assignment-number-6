@@ -2,6 +2,7 @@ import SavedButton from '@/components/cardDetails/SavedButton';
 import TodaysPlanButton from '@/components/cardDetails/TodaysPlanButton';
 import { ICard } from '@/types/gym-type';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
 interface ICardDetailPageProps {
     params: Promise<{
@@ -9,39 +10,27 @@ interface ICardDetailPageProps {
     }>;
 }
 
-const getItem = async (): Promise<ICard[]> => {
-    try {
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL!);
+const getItem = async () => {
 
-        if (!res.ok) {
-            throw new Error('Failed to fetch workout data');
-        }
-        const data: ICard[] = await res.json();
-        return data;
+    const res = await fetch("https://api.api-store.workers.dev/api/fitlog");
+    const data = await res.json();
+    return data;
 
-    } catch (error) {
-        console.error('Error fetching workout data:', error);
-        return [];
-    }
 };
 
+
 const DetailPage = async ({ params }: ICardDetailPageProps) => {
+
     const { id } = await params;
 
     const cardData = await getItem();
 
-    const card = cardData.find(
-        (item) => String(item.id) === String(id)
-    );
+    const card = cardData.find((card: ICard)=> String(card.id) === String(id));
 
     if (!card) {
-        return (
-            <div className="min-h-screen flex items-center justify-center text-white">
-                <h1 className="text-2xl font-bold">
-                    Workout not found
-                </h1>
-            </div>
-        );
+
+        notFound();
+
     }
 
     return (
@@ -70,7 +59,7 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                         </p>
 
                         <div className="mt-4 flex flex-wrap gap-2">
-                            {card.muscleGroups.map((muscle) => (
+                            {card.muscleGroups.map((muscle: string) => (
                                 <span
                                     key={muscle}
                                     className="rounded-full bg-[#b6ff00] px-3 py-1 text-xs font-bold text-black"
@@ -160,7 +149,7 @@ const DetailPage = async ({ params }: ICardDetailPageProps) => {
                             </h2>
 
                             <ol className="mt-3 space-y-2">
-                                {card.instructions.map((instruction, index) => (
+                                {card.instructions.map((instruction: string, index: number) => (
                                     <li
                                         key={index}
                                         className="flex gap-3 text-xs leading-5 text-gray-400"

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const NotFoundPage = () => {
     return (
-        <main className="min-h-167 flex items-center justify-center bg-base-200 px-4">
+        <main className="min-h-190 flex items-center justify-center bg-base-200 px-4">
             <div className="w-full max-w-2xl text-center">
 
                 {/* Icon */}
@@ -29,7 +29,7 @@ const NotFoundPage = () => {
                 {/* Description */}
                 <p className="mt-3 md:mt-4 max-w-md mx-auto px-2 text-sm md:text-base text-[#8A92A0] leading-relaxed">
                     Looks like this workout took a rest day.
-                    The page you're looking for doesn't exist or may have been moved.
+                    The page you&apos;re looking for doesn&apos;t exist or may have been moved.
                 </p>
 
                 {/* Back to Home */}

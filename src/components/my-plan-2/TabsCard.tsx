@@ -118,7 +118,7 @@ const MyPlanPart2 = () => {
 
 
             {/* Cards */}
-            <div className="mt-5 space-y-3">
+            <div className="my-10 space-y-3">
 
                 {sortedCards.length === 0 ? (
                     <div className="rounded-xl border border-gray-800 bg-[#15171c] p-25 text-center text-gray-400">

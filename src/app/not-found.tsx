@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const NotFoundPage = () => {
     return (
-        <main className="min-h-190 flex items-center justify-center bg-black px-4">
+        <main className="min-h-200 flex items-center justify-center bg-black px-4">
             <div className="w-full max-w-2xl text-center">
 
                 {/* Icon */}

@@ -28,7 +28,7 @@ const Navbar = () => {
                 <div className="navbar-start sm:gap-3 md:gap-0">
 
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden px-2 sm:px-3">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden px-5 sm:px-3">
                             <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 sm:h-9 sm:w-9 text-white border border-[#ccff00] p-2 rounded-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>

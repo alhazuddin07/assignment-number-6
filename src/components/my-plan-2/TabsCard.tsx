@@ -35,11 +35,11 @@ const MyPlanPart2 = () => {
         const sortedCards = [...cards];
 
         if (sortBy === 'duration') {
-            sortedCards.sort((a, b) => b.duration - a.duration );
+            sortedCards.sort((a, b) => b.duration - a.duration);
         } else if (sortBy === 'rating') {
             sortedCards.sort((a, b) => b.rating - a.rating);
         } else if (sortBy === 'caloriesBurned') {
-            sortedCards.sort((a, b) => b.caloriesBurned - a.caloriesBurned );
+            sortedCards.sort((a, b) => b.caloriesBurned - a.caloriesBurned);
         }
 
         return sortedCards;
@@ -68,15 +68,14 @@ const MyPlanPart2 = () => {
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
-                <div className="tabs tabs-box bg-[#34373f] w-fit">
+                <div className="tabs tabs-box bg-[#151921] w-fit">
 
                     <button
                         onClick={() => setActiveTab('today')}
-                        className={`tab text-xs sm:text-sm md:text-base ${
-                            activeTab === 'today'
-                                ? 'tab-active'
-                                : ''
-                        }`}
+                        className={`tab text-xs sm:text-sm md:text-base text-[#8A92A0] ${activeTab === 'today'
+                            ? 'tab-active bg-[#1F242D] text-white'
+                            : ''
+                            }`}
                     >
                         Today&apos;s Plan
                     </button>
@@ -84,11 +83,10 @@ const MyPlanPart2 = () => {
 
                     <button
                         onClick={() => setActiveTab('saved')}
-                        className={`tab text-xs sm:text-sm md:text-base ${
-                            activeTab === 'saved'
-                                ? 'tab-active'
-                                : ''
-                        }`}
+                        className={`tab text-xs sm:text-sm md:text-base text-[#8A92A0] ${activeTab === 'saved'
+                            ? 'tab-active bg-[#1F242D] text-white'
+                            : ''
+                            }`}
                     >
                         Saved
                     </button>
@@ -99,18 +97,18 @@ const MyPlanPart2 = () => {
                 <div className="flex items-center gap-2 sm:gap-3">
 
                     <span className="text-xs sm:text-sm text-gray-400">
-                        Sort By
+                        Sort<span className='text-black'>.</span>By
                     </span>
 
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value as 'duration' | 'rating' | 'caloriesBurned')}
-                        className="rounded-md border border-gray-400 px-2 sm:px-3 py-2 text-sm sm:text-base"
+                        className="select rounded-md border border-gray-400 px-2 sm:px-3 py-2 text-sm sm:text-base"
                     >
+
                         <option value="duration">Duration</option>
                         <option value="rating">Rating</option>
                         <option value="caloriesBurned">Calories</option>
-
                     </select>
                 </div>
 
@@ -192,7 +190,7 @@ const MyPlanPart2 = () => {
 
                                 <Link
                                     href={`/libraryWorkoutCard/${card.id}`}
-                                    className="rounded-full border border-gray-700 px-3 sm:px-4 py-2 text-[10px] sm:text-xs whitespace-nowrap"
+                                    className="rounded-full border border-gray-700 px-3 sm:px-4 py-2 text-[10px] sm:text-xs whitespace-nowrap text-white"
                                 >
                                     View Details
                                 </Link>

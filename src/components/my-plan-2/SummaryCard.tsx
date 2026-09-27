@@ -31,7 +31,7 @@ const SummaryCard = () => {
     return (
         <div className="container mx-auto mt-5 sm:mt-6 md:mt-8 lg:mt-8 px-4 sm:px-4 md:px-6 lg:px-0">
 
-            <div className="card bg-base-100 shadow-md p-3 sm:p-4 md:p-6 lg:p-8">
+            <div className="card bg-[#15171c] shadow-md p-3 sm:p-4 md:p-6 lg:p-8">
 
                 <div className="card-body flex flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-5 sm:gap-0 md:gap-0">
 
@@ -52,7 +52,7 @@ const SummaryCard = () => {
                             Minutes
                         </p>
 
-                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                             {totalMinutes}
                         </p>
                     </div>
@@ -64,7 +64,7 @@ const SummaryCard = () => {
                             Calories
                         </p>
 
-                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                             {totalCalories}
                         </p>
                     </div>

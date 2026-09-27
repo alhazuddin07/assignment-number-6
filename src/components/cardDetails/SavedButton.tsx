@@ -29,8 +29,8 @@ const SavedButton = ({ card }: { card: ICard }) => {
         <div>
             <button
                 onClick={()=> handleSaveButton()}
-                className="flex items-center gap-2 rounded-lg border border-gray-700 px-4 py-2.5 text-xs text-gray-300 transition hover:bg-gray-800">
-                <Bookmark size={15} />
+                className="flex items-center gap-1.5 sm:gap-2 rounded-lg border border-gray-700 px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs text-gray-300 transition hover:bg-gray-800 whitespace-nowrap">
+                <Bookmark size={14} className="sm:w-[15px] sm:h-[15px]" />
                 Save for later
             </button>
         </div>

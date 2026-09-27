@@ -64,15 +64,15 @@ const MyPlanPart2 = () => {
     };
 
     return (
-        <div className="mt-15 sm:px-4 lg:px-0">
+        <div className="mt-10 sm:mt-12 md:mt-14 lg:mt-15 px-4 sm:px-4 md:px-6 lg:px-0">
 
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
-                <div className="tabs tabs-box bg-[#34373f]">
+                <div className="tabs tabs-box bg-[#34373f] w-fit">
 
                     <button
                         onClick={() => setActiveTab('today')}
-                        className={`tab ${
+                        className={`tab text-xs sm:text-sm md:text-base ${
                             activeTab === 'today'
                                 ? 'tab-active'
                                 : ''
@@ -84,7 +84,7 @@ const MyPlanPart2 = () => {
 
                     <button
                         onClick={() => setActiveTab('saved')}
-                        className={`tab ${
+                        className={`tab text-xs sm:text-sm md:text-base ${
                             activeTab === 'saved'
                                 ? 'tab-active'
                                 : ''
@@ -96,16 +96,16 @@ const MyPlanPart2 = () => {
                 </div>
 
                 {/* Sort */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
 
-                    <span className="text-sm text-gray-400">
+                    <span className="text-xs sm:text-sm text-gray-400">
                         Sort By
                     </span>
 
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value as 'duration' | 'rating' | 'caloriesBurned')}
-                        className="rounded-md border border-gray-400 px-3 py-2"
+                        className="rounded-md border border-gray-400 px-2 sm:px-3 py-2 text-sm sm:text-base"
                     >
                         <option value="duration">Duration</option>
                         <option value="rating">Rating</option>
@@ -118,25 +118,25 @@ const MyPlanPart2 = () => {
 
 
             {/* Cards */}
-            <div className="my-10 space-y-3">
+            <div className="my-6 sm:my-8 md:my-9 lg:my-10 space-y-3">
 
                 {sortedCards.length === 0 ? (
-                    <div className="rounded-xl border border-gray-800 bg-[#15171c] p-25 text-center text-gray-400">
+                    <div className="rounded-xl border border-gray-800 bg-[#15171c] p-8 sm:p-12 md:p-16 lg:p-25 text-center text-gray-400">
 
                         {activeTab === 'today'
                             ? <div className='space-y-4'>
-                                <h2 className='text-2xl text-white'>NOTHING HERE YET</h2>
-                                <p className=''>Browse the library and add a lift to get today moving.</p>
+                                <h2 className='text-xl sm:text-2xl text-white'>NOTHING HERE YET</h2>
+                                <p className='text-sm sm:text-base'>Browse the library and add a lift to get today moving.</p>
                                 <Link href="/">
-                                    <button className='btn bg-[#ccff00] text-black rounded-2xl'>Go to workouts</button>
+                                    <button className='btn bg-[#ccff00] text-black rounded-2xl text-sm sm:text-base'>Go to workouts</button>
                                 </Link>
                             </div>
 
                             : <div className='space-y-4'>
-                                <h2 className='text-2xl text-white'>NOTHING HERE YET</h2>
-                                <p className=''>Browse the library and add a lift to get today moving.</p>
+                                <h2 className='text-xl sm:text-2xl text-white'>NOTHING HERE YET</h2>
+                                <p className='text-sm sm:text-base'>Browse the library and add a lift to get today moving.</p>
                                 <Link href="/">
-                                    <button className='btn bg-[#ccff00] text-black rounded-2xl'>Go to workouts</button>
+                                    <button className='btn bg-[#ccff00] text-black rounded-2xl text-sm sm:text-base'>Go to workouts</button>
                                 </Link>
                             </div>
                         }
@@ -148,12 +148,12 @@ const MyPlanPart2 = () => {
 
                         <div
                             key={card.id}
-                            className="flex items-center justify-between rounded-xl border border-gray-800 bg-[#15171c] p-3"
+                            className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between rounded-xl border border-gray-800 bg-[#15171c] p-3 sm:p-4"
                         >
 
                             {/* Left Side */}
-                            <div className="flex items-center gap-4">
-                                <div className="relative h-16 w-28 overflow-hidden rounded-lg">
+                            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                                <div className="relative h-14 w-20 sm:h-16 sm:w-24 md:w-28 shrink-0 overflow-hidden rounded-lg">
                                     <Image
                                         src={card.image}
                                         alt={card.name}
@@ -162,11 +162,12 @@ const MyPlanPart2 = () => {
                                     />
                                 </div>
 
-                                <div>
+                                <div className="min-w-0">
 
-                                    <h3 className="font-bold uppercase">{card.name}</h3>
-                                    <p className="text-sm text-gray-500">{card.equipment}</p>
-                                    <div className="mt-1 flex gap-4 text-xs text-gray-400">
+                                    <h3 className="font-bold uppercase text-sm sm:text-base truncate">{card.name}</h3>
+                                    <p className="text-xs sm:text-sm text-gray-500 truncate">{card.equipment}</p>
+
+                                    <div className="mt-1 flex flex-wrap gap-2 sm:gap-4 text-[10px] sm:text-xs text-gray-400">
 
                                         <span className="flex items-center gap-1">
                                             <Clock3 size={13} />
@@ -187,11 +188,11 @@ const MyPlanPart2 = () => {
                             </div>
 
                             {/* Right Side */}
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center justify-end gap-2 sm:gap-3">
 
                                 <Link
                                     href={`/libraryWorkoutCard/${card.id}`}
-                                    className="rounded-full border border-gray-700 px-4 py-2 text-xs"
+                                    className="rounded-full border border-gray-700 px-3 sm:px-4 py-2 text-[10px] sm:text-xs whitespace-nowrap"
                                 >
                                     View Details
                                 </Link>
@@ -199,7 +200,7 @@ const MyPlanPart2 = () => {
                                 {activeTab === 'today' && (
 
                                     <button
-                                        className="rounded-full bg-[#C2F10D] px-5 py-2 text-xs font-bold text-black">
+                                        className="rounded-full bg-[#C2F10D] px-3 sm:px-5 py-2 text-[10px] sm:text-xs font-bold text-black whitespace-nowrap">
                                         ✓ Mark as Done
                                     </button>
                                 )}

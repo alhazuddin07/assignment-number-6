@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const NotFoundPage = () => {
     return (
-        <main className="min-h-190 flex items-center justify-center bg-base-200 px-4">
+        <main className="min-h-190 flex items-center justify-center bg-black px-4">
             <div className="w-full max-w-2xl text-center">
 
                 {/* Icon */}
@@ -17,12 +17,12 @@ const NotFoundPage = () => {
                 </div>
 
                 {/* 404 */}
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight">
+                <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tight">
                     404
                 </h1>
 
                 {/* Title */}
-                <h2 className="mt-3 md:mt-4 text-2xl md:text-3xl lg:text-4xl font-bold">
+                <h2 className="mt-3 md:mt-4 text-2xl md:text-3xl lg:text-4xl text-white font-bold">
                     Workout Not Found
                 </h2>
 

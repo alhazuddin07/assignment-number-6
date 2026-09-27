@@ -29,8 +29,8 @@ const TodaysPlanButton = ({ card }: {card: ICard}) => {
         <div>
             <button
                 onClick={()=> handleAddTodaysPlan()}
-                className="flex items-center gap-2 rounded-lg bg-[#b6ff00] px-4 py-2.5 text-xs font-bold text-black transition hover:bg-[#a5e600]">
-                <CalendarPlus size={15} />
+                className="flex items-center gap-1.5 sm:gap-2 rounded-lg bg-[#b6ff00] px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-bold text-black transition hover:bg-[#a5e600] whitespace-nowrap">
+                <CalendarPlus size={14} className="sm:w-[15px] sm:h-[15px]" />
                 Add to today&apos;s plan
             </button>
         </div>

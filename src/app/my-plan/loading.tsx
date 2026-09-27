@@ -3,7 +3,7 @@ import React from 'react';
 const MpLoadingPage = () => {
     return (
         <div>
-            <p>loading...</p>
+            <p>Loading...</p>
         </div>
     );
 };

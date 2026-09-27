@@ -198,7 +198,16 @@ const MyPlanPart2 = () => {
                                 {activeTab === 'today' && (
 
                                     <button
-                                        className="rounded-full bg-[#C2F10D] px-3 sm:px-5 py-2 text-[10px] sm:text-xs font-bold text-black whitespace-nowrap">
+                                        onClick={(e) => {
+                                            e.currentTarget.disabled = true;
+                                            e.currentTarget.innerText = '✓ Complete';
+                                            e.currentTarget.classList.remove('bg-[#ccff00]');
+                                            e.currentTarget.classList.add('bg-transparent', 'border', 'border-gray-700', 'text-gray-400');
+
+                                            toast.success('Workout marked as done!');
+                                        }}
+                                        className="rounded-full bg-[#ccff00] px-3 sm:px-5 py-2 text-[10px] sm:text-xs font-bold text-black whitespace-nowrap"
+                                    >
                                         ✓ Mark as Done
                                     </button>
                                 )}

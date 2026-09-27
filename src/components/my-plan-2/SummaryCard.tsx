@@ -33,7 +33,7 @@ const SummaryCard = () => {
 
             <div className="card bg-[#15171c] shadow-md p-3 sm:p-4 md:p-6 lg:p-8">
 
-                <div className="card-body flex flex-col sm:flex-row md:flex-row items-center justify-center text-center gap-5 sm:gap-0 md:gap-0">
+                <div className="card-body flex flex-row items-center justify-center text-center gap-5 sm:gap-0 md:gap-0">
 
                     <div className="w-full sm:w-1/3 md:w-1/3">
                         <p className="text-[#8A92A0] text-sm sm:text-base">
